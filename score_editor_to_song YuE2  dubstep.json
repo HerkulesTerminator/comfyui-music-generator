@@ -1,0 +1,662 @@
+{
+  "id": "b8718498-815a-4fc2-9ad8-ac598c7581ac",
+  "revision": 0,
+  "last_node_id": 7,
+  "last_link_id": 8,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "FL_YuE2_Decode",
+      "pos": [
+        2200,
+        120
+      ],
+      "size": [
+        320,
+        160
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "audio_decoder",
+          "name": "audio_decoder",
+          "type": "YUE2_VAE",
+          "link": 4
+        },
+        {
+          "label": "music_latents",
+          "name": "music_latents",
+          "type": "YUE2_LATENTS",
+          "link": 5
+        },
+        {
+          "label": "tile_frames",
+          "name": "tile_frames",
+          "type": "INT",
+          "widget": {
+            "name": "tile_frames"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            6,
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-fl-yue2",
+        "ver": "b5af3e613b7582bab153bcdff8e777b26c60ab6f",
+        "Node name for S&R": "FL_YuE2_Decode"
+      },
+      "widgets_values": [
+        1024
+      ],
+      "widgets_values_named": {
+        "tile_frames": 1024
+      },
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 1,
+      "type": "FL_YuE2_ModelLoader",
+      "pos": [
+        30,
+        120
+      ],
+      "size": [
+        300,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "download_missing",
+          "name": "download_missing",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "download_missing"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "music_model",
+          "name": "music_model",
+          "type": "YUE2_MODEL",
+          "slot_index": 0,
+          "links": [
+            1,
+            2
+          ]
+        },
+        {
+          "label": "audio_decoder",
+          "name": "audio_decoder",
+          "type": "YUE2_VAE",
+          "slot_index": 1,
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-fl-yue2",
+        "ver": "b5af3e613b7582bab153bcdff8e777b26c60ab6f",
+        "Node name for S&R": "FL_YuE2_ModelLoader"
+      },
+      "widgets_values": [
+        true
+      ],
+      "widgets_values_named": {
+        "download_missing": true
+      },
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 3,
+      "type": "FL_YuE2_Render",
+      "pos": [
+        1800,
+        120
+      ],
+      "size": [
+        340,
+        410
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "music_model",
+          "name": "music_model",
+          "type": "YUE2_MODEL",
+          "link": 2
+        },
+        {
+          "label": "composition",
+          "name": "composition",
+          "type": "YUE2_PLAN",
+          "link": 3
+        },
+        {
+          "label": "max_duration",
+          "name": "max_duration",
+          "type": "INT",
+          "widget": {
+            "name": "max_duration"
+          },
+          "link": null
+        },
+        {
+          "label": "acoustic_steps",
+          "name": "acoustic_steps",
+          "type": "INT",
+          "widget": {
+            "name": "acoustic_steps"
+          },
+          "link": null
+        },
+        {
+          "label": "temperature",
+          "name": "temperature",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "label": "top_p",
+          "name": "top_p",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "top_p"
+          },
+          "link": null
+        },
+        {
+          "label": "top_k",
+          "name": "top_k",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "top_k"
+          },
+          "link": null
+        },
+        {
+          "label": "repetition_penalty",
+          "name": "repetition_penalty",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "repetition_penalty"
+          },
+          "link": null
+        },
+        {
+          "label": "guidance",
+          "name": "guidance",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "guidance"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "music_latents",
+          "name": "music_latents",
+          "type": "YUE2_LATENTS",
+          "slot_index": 0,
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-fl-yue2",
+        "ver": "b5af3e613b7582bab153bcdff8e777b26c60ab6f",
+        "Node name for S&R": "FL_YuE2_Render"
+      },
+      "widgets_values": [
+        360,
+        32,
+        1,
+        0.95,
+        100,
+        1.2,
+        1,
+        ""
+      ],
+      "widgets_values_named": {
+        "max_duration": 360,
+        "acoustic_steps": 32,
+        "temperature": 1,
+        "top_p": 0.95,
+        "top_k": 100,
+        "repetition_penalty": 1.2,
+        "guidance": 1,
+        "yue2_result": ""
+      },
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 5,
+      "type": "PreviewAudio",
+      "pos": [
+        2200,
+        340
+      ],
+      "size": [
+        320,
+        170
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 6
+        },
+        {
+          "label": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 7,
+      "type": "FL_YuE2_ScoreEditor",
+      "pos": [
+        379.00000000000006,
+        118.16666666666671
+      ],
+      "size": [
+        840,
+        1612
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "incoming_score_abc",
+          "name": "incoming_score_abc",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "label": "score_abc",
+          "name": "score_abc",
+          "type": "STRING",
+          "widget": {
+            "name": "score_abc"
+          },
+          "link": null
+        },
+        {
+          "label": "source_score_hash",
+          "name": "source_score_hash",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "source_score_hash"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "score_abc",
+          "name": "score_abc",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-fl-yue2",
+        "ver": "b5af3e613b7582bab153bcdff8e777b26c60ab6f",
+        "Node name for S&R": "FL_YuE2_ScoreEditor"
+      },
+      "widgets_values": [
+        "X:1\nT:\nM:4/4\nL:1/32\nQ:1/4=89\nV: Vocal clef=treble name=\"Vocal Melody\" snm=\"Vocal\"\nV: Ins clef=treble name=\"Ins Melody\" snm=\"Inst.\"\nK:Em\n% intro\nV: Vocal\nz24z4\"Em\"z4|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nZ|E2B2e4g6e4c2e4g6d2-|d4d4b6f4B2^d4z8|\n% verse\nV: Vocal\n\"Em\"e4e2e2g4e2e2\"C\"g4e2e2g4z2B2|\"G\"b4b4b4e2e2\"B\"f4f2e2f4z4|\"Em\"e4e2e2g4e2e2\"C\"g4e4g2e4B2|\"G\"B4z2B2B2B4B2\"B\"B4z2G2F4E4|\nV: Ins\nZ4|\n% interlude\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\ne4e2f2g4e4e4e4g6f2|B4d4B6f2B16|z4e2f2g4e4e4e4g6f2|B4d4B6f2B16|\n% verse\nV: Vocal\n\"Em\"e4e2e2g2e4z2\"C\"g2e4e2g2e4B2|\"G\"b4b2b2b4B2e2\"B\"f2f4e2f4z2B2|\"Em\"e4e2e2g2e4e2\"C\"g4e4g2e2B2B2|\"G\"B4z2B2B4z2B2\"B\"B6G2F4E4|\nV: Ins\nZ4|\n% interlude\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\ne4e2f2g4e4e4e4g6f2|B4d4B4B2f2B16|z4e2f2g4e4e4e4g6f2|B4B4B4G2F16z2|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nB4e2f2g4e4e4e4g6f2|B4d4B4B2F16z2|B4e2f2g4e4e4e4g6f2|B4B4B4G2F16z2|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nE4E4z4E4C4C4z4G4|G4G4z4G4F4F4z4F4|E4E4z4E4C4C4z4G4|G4G4z4G4B4z12|\n% chorus\nV: Vocal\n\"Em\"e4e2e2g2e4z2\"C\"g2e4e2g2e4B2|\"G\"b4b2b2b4B2e2\"B\"f2f4e2f4z2B2|\"Em\"e4e4g2e4e2\"C\"g4e4g4B2B2|\"G\"B4z2B2B4z2B2\"B\"B4z2G2F4E4|\nV: Ins\nZ4|\n% interlude\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nB4e2f2g4e4e4e4g4g2f2|B4d4B4B2F2F4F4F4B4|z4e2f2g4e4e4e4g4g2f2|B4d4B4G2F8B,2G2F2E4|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nE4E4B4E2E2C2C2C4c4C2C2|G,2G,2D2G,2G4G,2G,2B,2B,2B,2B,2B,4B,2B,2|E4E4B4E2E2C2C2C2C2c4C2C2|G,2G,2D2G,2G4G2F2F6B,2G2F2E4|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nB4e2f2g4e4e4e4g4g2f2-|f4d4B4B2F6F4F4B4|z4e2f2g4e4e4e4g4g2f2-|f4B4B4G2F8B2g2f2e4|\n% chorus\nV: Vocal\n\"Em\"e4e4g4e2e2\"C\"g4e2e2g2e4B2|\"G\"d4f4g4g2g2\"B\"f2f2f2f2g4z2B2|\"Em\"g4g4g2e4e2\"C\"e4e2f2g4z2f2|\"G\"g4g2g2g4g4\"Am\"g4g2g2a4b4|\nV: Ins\nZ4|\nV: Vocal\n\"B\"z32|\"Em\"e4e2e2g2e4z2\"C\"g2e4e2g2e4B2|\"G\"b4b4b4B2B2\"B\"f2f4e2f4z2B2|\"Em\"e4e2e2g2e4e2\"C\"g4e2g2g2e2B2B2|\nV: Ins\nZ4|\nV: Vocal\n\"G\"c4z2B2G4z2G2\"B\"A4z2F2F4E4|\nV: Ins\nZ|\n% outro\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nz4e2f2g4e4e4e4g4g2f2|B4d4B4B2F6F4F4B4|z4e2f2g4e4e4e4g4g2f2|B4G4G4G2F8B,2G2F2E4|\nV: Vocal\nZ2|\nV: Ins\nZ2|\n",
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "score_abc": "X:1\nT:\nM:4/4\nL:1/32\nQ:1/4=89\nV: Vocal clef=treble name=\"Vocal Melody\" snm=\"Vocal\"\nV: Ins clef=treble name=\"Ins Melody\" snm=\"Inst.\"\nK:Em\n% intro\nV: Vocal\nz24z4\"Em\"z4|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nZ|E2B2e4g6e4c2e4g6d2-|d4d4b6f4B2^d4z8|\n% verse\nV: Vocal\n\"Em\"e4e2e2g4e2e2\"C\"g4e2e2g4z2B2|\"G\"b4b4b4e2e2\"B\"f4f2e2f4z4|\"Em\"e4e2e2g4e2e2\"C\"g4e4g2e4B2|\"G\"B4z2B2B2B4B2\"B\"B4z2G2F4E4|\nV: Ins\nZ4|\n% interlude\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\ne4e2f2g4e4e4e4g6f2|B4d4B6f2B16|z4e2f2g4e4e4e4g6f2|B4d4B6f2B16|\n% verse\nV: Vocal\n\"Em\"e4e2e2g2e4z2\"C\"g2e4e2g2e4B2|\"G\"b4b2b2b4B2e2\"B\"f2f4e2f4z2B2|\"Em\"e4e2e2g2e4e2\"C\"g4e4g2e2B2B2|\"G\"B4z2B2B4z2B2\"B\"B6G2F4E4|\nV: Ins\nZ4|\n% interlude\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\ne4e2f2g4e4e4e4g6f2|B4d4B4B2f2B16|z4e2f2g4e4e4e4g6f2|B4B4B4G2F16z2|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nB4e2f2g4e4e4e4g6f2|B4d4B4B2F16z2|B4e2f2g4e4e4e4g6f2|B4B4B4G2F16z2|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nE4E4z4E4C4C4z4G4|G4G4z4G4F4F4z4F4|E4E4z4E4C4C4z4G4|G4G4z4G4B4z12|\n% chorus\nV: Vocal\n\"Em\"e4e2e2g2e4z2\"C\"g2e4e2g2e4B2|\"G\"b4b2b2b4B2e2\"B\"f2f4e2f4z2B2|\"Em\"e4e4g2e4e2\"C\"g4e4g4B2B2|\"G\"B4z2B2B4z2B2\"B\"B4z2G2F4E4|\nV: Ins\nZ4|\n% interlude\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nB4e2f2g4e4e4e4g4g2f2|B4d4B4B2F2F4F4F4B4|z4e2f2g4e4e4e4g4g2f2|B4d4B4G2F8B,2G2F2E4|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nE4E4B4E2E2C2C2C4c4C2C2|G,2G,2D2G,2G4G,2G,2B,2B,2B,2B,2B,4B,2B,2|E4E4B4E2E2C2C2C2C2c4C2C2|G,2G,2D2G,2G4G2F2F6B,2G2F2E4|\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nB4e2f2g4e4e4e4g4g2f2-|f4d4B4B2F6F4F4B4|z4e2f2g4e4e4e4g4g2f2-|f4B4B4G2F8B2g2f2e4|\n% chorus\nV: Vocal\n\"Em\"e4e4g4e2e2\"C\"g4e2e2g2e4B2|\"G\"d4f4g4g2g2\"B\"f2f2f2f2g4z2B2|\"Em\"g4g4g2e4e2\"C\"e4e2f2g4z2f2|\"G\"g4g2g2g4g4\"Am\"g4g2g2a4b4|\nV: Ins\nZ4|\nV: Vocal\n\"B\"z32|\"Em\"e4e2e2g2e4z2\"C\"g2e4e2g2e4B2|\"G\"b4b4b4B2B2\"B\"f2f4e2f4z2B2|\"Em\"e4e2e2g2e4e2\"C\"g4e2g2g2e2B2B2|\nV: Ins\nZ4|\nV: Vocal\n\"G\"c4z2B2G4z2G2\"B\"A4z2F2F4E4|\nV: Ins\nZ|\n% outro\nV: Vocal\n\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\"Em\"z16\"C\"z16|\"G\"z16\"B\"z16|\nV: Ins\nz4e2f2g4e4e4e4g4g2f2|B4d4B4B2F6F4F4B4|z4e2f2g4e4e4e4g4g2f2|B4G4G4G2F8B,2G2F2E4|\nV: Vocal\nZ2|\nV: Ins\nZ2|\n",
+        "source_score_hash": "",
+        "yue2_score_editor": ""
+      },
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 2,
+      "type": "FL_YuE2_Plan",
+      "pos": [
+        1290,
+        120
+      ],
+      "size": [
+        450,
+        790
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "music_model",
+          "name": "music_model",
+          "type": "YUE2_MODEL",
+          "link": 1
+        },
+        {
+          "label": "style",
+          "name": "style",
+          "type": "STRING",
+          "widget": {
+            "name": "style"
+          },
+          "link": null
+        },
+        {
+          "label": "lyrics",
+          "name": "lyrics",
+          "type": "STRING",
+          "widget": {
+            "name": "lyrics"
+          },
+          "link": null
+        },
+        {
+          "label": "planning",
+          "name": "planning",
+          "type": "COMBO",
+          "widget": {
+            "name": "planning"
+          },
+          "link": null
+        },
+        {
+          "label": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "label": "max_score_tokens",
+          "name": "max_score_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "max_score_tokens"
+          },
+          "link": null
+        },
+        {
+          "label": "score_abc",
+          "name": "score_abc",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "score_abc"
+          },
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "label": "composition",
+          "name": "composition",
+          "type": "YUE2_PLAN",
+          "slot_index": 0,
+          "links": [
+            3
+          ]
+        },
+        {
+          "label": "score_abc",
+          "name": "score_abc",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-fl-yue2",
+        "ver": "b5af3e613b7582bab153bcdff8e777b26c60ab6f",
+        "Node name for S&R": "FL_YuE2_Plan"
+      },
+      "widgets_values": [
+        "Russian, modern dubstep bass music, 87 BPM, D# minor, massive sub-bass wobble and growl, aggressive distorted bass synths with frequency modulation, intricate hi-hat patterns and rolling snares, epic build-ups with white noise sweeps and snare rolls, heavy sidechain compression, dark atmospheric pads, rap vocal with aggressive delivery and ad-libs, festival dubstep energy (think Skrillex meets Excision)",
+        "\n[verse]\n Он террористов в сортире мочит...\n   Не чешет яйца и хуй не дрочит,\n   Он неизменно пиздит по делу:\n   У тех - отнимет, на всех - поделит!\n[verse]\n Он - светоч мира, оплот свободы!\n   Грехи отпустит и примет роды!\n   Слепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n\n[verse]\nОн - светоч мира, оплот свободы!\n   Грехи отпустит и примет роды!\n   Слепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n[bridge]\nОн террористов в сортире мочит...\n Грехи отпустит и примет роды!\nСлепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n[outro]\n Он - светоч мира, оплот свободы!\n   Грехи отпустит и примет роды!\n   Слепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n\n ",
+        "full",
+        792711915849218,
+        "randomize",
+        8960,
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "style": "Russian, modern dubstep bass music, 87 BPM, D# minor, massive sub-bass wobble and growl, aggressive distorted bass synths with frequency modulation, intricate hi-hat patterns and rolling snares, epic build-ups with white noise sweeps and snare rolls, heavy sidechain compression, dark atmospheric pads, rap vocal with aggressive delivery and ad-libs, festival dubstep energy (think Skrillex meets Excision)",
+        "lyrics": "\n[verse]\n Он террористов в сортире мочит...\n   Не чешет яйца и хуй не дрочит,\n   Он неизменно пиздит по делу:\n   У тех - отнимет, на всех - поделит!\n[verse]\n Он - светоч мира, оплот свободы!\n   Грехи отпустит и примет роды!\n   Слепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n\n[verse]\nОн - светоч мира, оплот свободы!\n   Грехи отпустит и примет роды!\n   Слепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n[bridge]\nОн террористов в сортире мочит...\n Грехи отпустит и примет роды!\nСлепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n[outro]\n Он - светоч мира, оплот свободы!\n   Грехи отпустит и примет роды!\n   Слепой прозреет, ослепнет зрячий:\n   Владимир Путин - не хуй собачий!\n\n ",
+        "planning": "full",
+        "seed": 792711915849218,
+        "control_after_generate": "randomize",
+        "max_score_tokens": 8960,
+        "score_abc": "",
+        "yue2_result": ""
+      },
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 6,
+      "type": "SaveAudioAdvanced",
+      "pos": [
+        2200,
+        580
+      ],
+      "size": [
+        320,
+        136
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 7
+        },
+        {
+          "label": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "label": "format",
+          "name": "format",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "label": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "SaveAudioAdvanced"
+      },
+      "widgets_values": [
+        "audio/YuE2/dubstep ",
+        "flac"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "audio/YuE2/dubstep ",
+        "format": "flac"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "YUE2_MODEL"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "YUE2_MODEL"
+    ],
+    [
+      3,
+      2,
+      0,
+      3,
+      1,
+      "YUE2_PLAN"
+    ],
+    [
+      4,
+      1,
+      1,
+      4,
+      0,
+      "YUE2_VAE"
+    ],
+    [
+      5,
+      3,
+      0,
+      4,
+      1,
+      "YUE2_LATENTS"
+    ],
+    [
+      6,
+      4,
+      0,
+      5,
+      0,
+      "AUDIO"
+    ],
+    [
+      7,
+      4,
+      0,
+      6,
+      0,
+      "AUDIO"
+    ],
+    [
+      8,
+      7,
+      0,
+      2,
+      6,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8140274938683991,
+      "offset": [
+        -680.9090005547527,
+        38.54447009205492
+      ]
+    },
+    "frontendVersion": "1.52.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
